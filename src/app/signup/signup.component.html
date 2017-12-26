@@ -1,0 +1,38 @@
+<div align="right">
+    <a href="javascript:void(0)" (click)="close()">
+                <span class="glyphicon glyphicon-remove"></span></a>
+</div>
+
+<h4 mat-dialog-title>Sign Up and Start Drawing</h4>
+<mat-dialog-content>
+    <form class="example-form" (ngSubmit) = "login(f)" #f="ngForm">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Full Name" ngModel name='fullname'   required >
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="E-mail" ngModel name='username'   required >
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password"  [type]="'password'" ngModel name='password' required>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Confirm Password"  [type]="'password'" ngModel name='confirmPassword' required>
+        </mat-form-field>
+        
+        <br>
+        <br>
+     
+         <button mat-button   class="btn btn-info btn-lg"  [disabled]='!f.valid'>Sign Up</button>
+         <br>
+         <br>
+         <a href="#">By signing up, you agree to our Terms of Use and Privacy Policy.</a>
+         
+         <hr width='100%'/>
+         
+         Already have an account? <a href="#">Log In</a>
+         
+      </form>
+</mat-dialog-content>

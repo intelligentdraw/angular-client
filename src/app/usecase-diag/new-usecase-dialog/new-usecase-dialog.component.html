@@ -1,0 +1,24 @@
+<div align="right">
+    <a href="javascript:void(0)" (click)="close()">
+                <span class="glyphicon glyphicon-remove"></span></a>
+</div>
+<h4 mat-dialog-title>New UseCase Diagram</h4>
+<mat-dialog-content>
+    <form class="example-form" (ngSubmit) = "createNewUseDiagram(f)" #f="ngForm">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Use Case Name" ngModel name='usecaseName' required>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Actor Name" ngModel name='actorName' required>
+        </mat-form-field>
+        
+        <br>
+        <br>
+         <button mat-button   class="btn btn-info btn-lg"   [disabled]='!f.valid'>Create</button>
+  
+      </form>
+</mat-dialog-content>
+
+
+
