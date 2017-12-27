@@ -2,14 +2,16 @@
 <app-sidebar></app-sidebar>
 
   
-<div class="container-fluid text-center">    
+<div class="container-fluid text-center">     
+    <h2>Start New Drawings</h2>
+    <br>    
     <div class="row content">
 <ul>
   <li>
-    <h2><button mat-raised-button  class="btn btn-info btn-lg"  (click)="openDialog()">Create UseCase Diagram</button></h2>
+    <h2><button mat-raised-button  class="btn btn-info btn-lg"  (click)="openUsecaseDialog()">Create UseCase Diagram</button></h2>
   </li>
   <li>
-    <h2><button mat-raised-button  class="btn btn-info btn-lg"  (click)="openDialog()">Create Sequence Diagram</button></h2>
+    <h2><button mat-raised-button  class="btn btn-info btn-lg"  (click)="openSequenceDialog()">Create Sequence Diagram</button></h2>
   </li>
   <li>{{mylabel}}</li>
 </ul>
