@@ -2,6 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {NewUsecaseDialogComponent} from '../usecase-diag/new-usecase-dialog/new-usecase-dialog.component';
 import {NewSequenceDialogComponent} from '../sequence-diag/new-sequence-dialog/new-sequence-dialog.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-diags',
@@ -19,7 +20,7 @@ mylabel: string
       actorName:''
   }
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private router: Router) {
       console.log('In NewDiagsComponent')
   }
 
@@ -41,6 +42,7 @@ mylabel: string
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.newUsecaseData = result;
+      this.router.navigate(['/canvas']);
     });
   }
 

@@ -1,3 +1,67 @@
-<p>
-  recent works!
-</p>
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+
+
+  
+<div class="container-fluid text-center">    
+    <h2>Open recent Drawings</h2>
+    <br>  
+    
+    <div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Drawing </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <a routerLink="/canvas">{{element.name}}</a> </mat-cell>
+    </ng-container>
+
+    <!-- Fullname Column -->
+    <ng-container matColumnDef="fullname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.fullname}} </mat-cell>
+    </ng-container>
+
+    <!-- Category Column -->
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Category </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+    </ng-container>
+
+    <!-- Sub Category Column -->
+    <ng-container matColumnDef="subCategory">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Sub Category </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.subCategory}} </mat-cell>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+    </ng-container>
+
+    <!-- created Column -->
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.created}} </mat-cell>
+    </ng-container>
+
+    <!-- updated Column -->
+    <ng-container matColumnDef="updated">
+      <mat-header-cell *matHeaderCellDef> Updated </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.updated}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+    
+    <br>
+    
+</div>
+<app-footer></app-footer>

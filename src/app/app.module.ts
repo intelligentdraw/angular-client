@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import {MatDialogModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app.routing.module';
@@ -23,6 +24,13 @@ import { CanvasComponent } from './canvas/canvas.component';
 import { AboutComponent } from './about/about.component';
 import { RecentComponent } from './recent/recent.component';
 import { ImportDiagComponent } from './import-diag/import-diag.component';
+import { ContactComponent } from './contact/contact.component';
+import { DuplicateDialogComponent } from './canvas/duplicate-dialog/duplicate-dialog.component';
+import { ExportDialogComponent } from './canvas/export-dialog/export-dialog.component';
+import { TrashDialogComponent } from './canvas/trash-dialog/trash-dialog.component';
+import { InfoDialogComponent } from './canvas/info-dialog/info-dialog.component';
+import { ShareDialogComponent } from './canvas/share-dialog/share-dialog.component';
+
 
 
 @NgModule({
@@ -40,19 +48,31 @@ import { ImportDiagComponent } from './import-diag/import-diag.component';
     CanvasComponent,
     AboutComponent,
     RecentComponent,
-    ImportDiagComponent
+    ImportDiagComponent,
+    ContactComponent,
+    DuplicateDialogComponent,
+    ExportDialogComponent,
+    TrashDialogComponent,
+    InfoDialogComponent,
+    ShareDialogComponent
   ],
   entryComponents: [
     NewUsecaseDialogComponent,
     LoginDialogComponent,
     SignupDialogComponent,
-    NewSequenceDialogComponent
+    NewSequenceDialogComponent,
+    DuplicateDialogComponent,
+    ExportDialogComponent,
+    TrashDialogComponent,
+    InfoDialogComponent,
+    ShareDialogComponent
   ],
   imports: [
     BrowserModule,
     MatDialogModule,
     MatInputModule,
     MatTableModule,
+    MatProgressSpinnerModule,
     FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule

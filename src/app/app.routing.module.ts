@@ -3,12 +3,20 @@ import {Routes, RouterModule} from '@angular/router';
 import {NewDiagsComponent} from './new-diags/new-diags.component';
 import {OpenDiagsComponent} from'./open-diags/open-diags.component';
 import {CanvasComponent} from './canvas/canvas.component';
+import {ImportDiagComponent} from './import-diag/import-diag.component';
+import {RecentComponent} from './recent/recent.component';
+import {AboutComponent} from './about/about.component';
+import {ContactComponent} from './contact/contact.component';
 
 const appRoutes: Routes = [
 {path: '', redirectTo:'/new', pathMatch: 'full'},
 {path: 'new', component: NewDiagsComponent},
 {path: 'canvas', component: CanvasComponent},
-{path: 'open', component:OpenDiagsComponent}
+{path: 'contact', component: ContactComponent},
+{path: 'import', component: ImportDiagComponent},
+{path: 'open', component:OpenDiagsComponent},
+{path: 'about', component:AboutComponent},
+{path: 'recent', component:RecentComponent}
 ];
 
 @NgModule({
