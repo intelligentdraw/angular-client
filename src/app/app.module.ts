@@ -6,6 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app.routing.module';
 
 
@@ -30,6 +31,7 @@ import { ExportDialogComponent } from './canvas/export-dialog/export-dialog.comp
 import { TrashDialogComponent } from './canvas/trash-dialog/trash-dialog.component';
 import { InfoDialogComponent } from './canvas/info-dialog/info-dialog.component';
 import { ShareDialogComponent } from './canvas/share-dialog/share-dialog.component';
+import {ServerService} from './server.services';
 
 
 
@@ -75,9 +77,10 @@ import { ShareDialogComponent } from './canvas/share-dialog/share-dialog.compone
     MatProgressSpinnerModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
