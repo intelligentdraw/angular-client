@@ -6,6 +6,7 @@ import { ExportDialogComponent } from './export-dialog/export-dialog.component';
 import { TrashDialogComponent } from './trash-dialog/trash-dialog.component';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { ShareDialogComponent } from './share-dialog/share-dialog.component';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-canvas',
@@ -14,13 +15,17 @@ import { ShareDialogComponent } from './share-dialog/share-dialog.component';
 })
 export class CanvasComponent implements OnInit {
 
+    drawing: {id:string, title:string};
 
-
-    constructor(public dialog: MatDialog) {
-        console.log('In LoginDialogComponent')
+    constructor(public dialog: MatDialog, private route: ActivatedRoute) {
+        console.log('In LoginDialogComponent');
     }
 
     ngOnInit() {
+        this.drawing = {
+            id: this.route.snapshot.params['drawingId'],
+            title: ''
+        };
     }
 
 

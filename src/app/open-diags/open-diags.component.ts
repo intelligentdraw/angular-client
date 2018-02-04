@@ -25,9 +25,10 @@ export class OpenDiagsComponent  {
   
   ngOnInit() {
       this.serverService.get("http://localhost/drawings").subscribe(
-        (response: HttpEvent<Object>) => {
-            console.log(response);
-            this.dataSource = new MatTableDataSource<Element>(response);
+        data => {
+            console.log(data);
+            var elements: Array<Element> = JSON.parse(JSON.stringify(data));
+            this.dataSource = new MatTableDataSource<Element>(elements);
             this.dataSource.sort = this.sort;
         }
       );
@@ -43,19 +44,3 @@ export interface Element {
   created: string;
   updated: string;
 }
-
-
-const ELEMENT_DATA: Element[] = [
-    {title: 'Create Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Use Case', created:'12-Mar-17', updated:'10-Apr-17'},
-    {title: 'Update Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Use Case', created:'12-Mar-17', updated:'10-Apr-17'},
-    {title: 'Delete Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Use Case', created:'12-Mar-17', updated:'10-Apr-17'},
-    {title: 'Transfer Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Use Case', created:'12-Mar-17', updated:'10-Apr-17'},
-    {title: 'Create Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Sequence', created:'12-Feb-17', updated:'10-Apr-17'},
-    {title: 'Update Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Sequence', created:'12-Jan-17', updated:'10-Apr-17'},
-    {title: 'Delete Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Sequence', created:'12-Mar-17', updated:'10-Apr-17'},
-    {title: 'Transfer Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Sequence', created:'12-Dec-17', updated:'10-Apr-17'},
-    {title: 'Create Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Use Case', created:'12-Mar-17', updated:'10-Apr-17'},
-    {title: 'Create Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Use Case', created:'12-Mar-17', updated:'10-Apr-17'},
-    {title: 'Create Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Use Case', created:'12-Mar-17', updated:'10-Apr-17'},
-    {title: 'Create Account', fullname: 'Lans Okley', category:'Project 1', subCategory:'sub project 3', drawingType:'Use Case', created:'12-Mar-17', updated:'10-Apr-17'},
-];

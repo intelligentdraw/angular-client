@@ -11,7 +11,7 @@ import {ContactComponent} from './contact/contact.component';
 const appRoutes: Routes = [
 {path: '', redirectTo:'/new', pathMatch: 'full'},
 {path: 'new', component: NewDiagsComponent},
-{path: 'canvas', component: CanvasComponent},
+{path: 'canvas/:drawingId', component: CanvasComponent},
 {path: 'contact', component: ContactComponent},
 {path: 'import', component: ImportDiagComponent},
 {path: 'open', component:OpenDiagsComponent},
