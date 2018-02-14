@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import {MatTableDataSource, MatSort} from '@angular/material';
 import {ServerService} from '../server.services';
-import {HttpEvent} from '@angular/common/http';
 
 @Component({
   selector: 'app-open-diags',
@@ -26,7 +25,7 @@ export class OpenDiagsComponent  {
   ngOnInit() {
       this.serverService.get("http://localhost/drawings").subscribe(
         data => {
-            console.log(data);
+            //console.log(data);
             var elements: Array<Element> = JSON.parse(JSON.stringify(data));
             this.dataSource = new MatTableDataSource<Element>(elements);
             this.dataSource.sort = this.sort;
@@ -36,6 +35,7 @@ export class OpenDiagsComponent  {
 }
 
 export interface Element {
+  id: string
   title: string;
   fullname: string;
   category: string;

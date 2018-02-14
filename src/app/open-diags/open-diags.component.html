@@ -17,7 +17,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Drawing </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <a routerLink="/canvas/1234">{{element.title}}</a> </mat-cell>
+      <mat-cell *matCellDef="let element"> <a routerLink="/canvas/{{element.id}}">{{element.title}}</a> </mat-cell>
     </ng-container>
 
     <!-- Fullname Column -->

@@ -32,6 +32,7 @@ import { TrashDialogComponent } from './canvas/trash-dialog/trash-dialog.compone
 import { InfoDialogComponent } from './canvas/info-dialog/info-dialog.component';
 import { ShareDialogComponent } from './canvas/share-dialog/share-dialog.component';
 import {ServerService} from './server.services';
+import {WindowRefService} from './window.services'
 
 
 
@@ -80,7 +81,7 @@ import {ServerService} from './server.services';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ServerService],
+  providers: [ServerService,WindowRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
