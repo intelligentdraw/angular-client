@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,7 +10,8 @@ import { ShareDialogComponent } from './share-dialog/share-dialog.component';
 import {ActivatedRoute} from '@angular/router';
 import {ServerService} from '../server.services';
 import {WindowRefService} from '../window.services';
-
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
     selector: 'app-canvas',
@@ -18,8 +19,13 @@ import {WindowRefService} from '../window.services';
     styleUrls: ['./canvas.component.css']
 })
 export class CanvasComponent implements OnInit {
-
+    
+    
     @ViewChild("drawingBlob") image: ElementRef;
+    
+    @ViewChild("drawingBlobMap") areaMap: ElementRef;
+    
+    @ViewChild("imgContainer") imageContainer: ElementRef;
     
     drawing: {id:string, title:string};
     
@@ -29,8 +35,13 @@ export class CanvasComponent implements OnInit {
     constructor(public dialog: MatDialog, 
         private route: ActivatedRoute, 
         private serverService: ServerService, 
-        private windowRefService: WindowRefService) {
+        private windowRefService: WindowRefService,
+        private renderer: Renderer2) {
         console.log('In LoginDialogComponent');
+    }
+    
+    ngAfterViewInit(){
+        $('.map').maphilight();
     }
 
     ngOnInit() {
@@ -47,14 +58,20 @@ export class CanvasComponent implements OnInit {
                 (data)=>{
                     //this.imageFound = true;
                     this.image.nativeElement.src = this.windowRefService.nativeWindow.URL.createObjectURL(data[0].body);
-                    //this.endSpinner = !this.imageFound;
                     
-                    //this.drawingMetadata = data[1];
+                    var metadata = Object.values(data[1])
+                    for (var i=0; i< metadata.length; i++){
+                        var jsonItem = metadata[i];                  
+                        const areaElement = this.renderer.createElement("area");
+                        this.renderer.setAttribute(areaElement, "shape", "rect");
+                        this.renderer.setAttribute(areaElement, "coords", jsonItem['coords']);
+                        this.renderer.setAttribute(areaElement, "alt", "rect");
+                        this.renderer.appendChild(this.areaMap.nativeElement, areaElement);
+                    }
+                    
                 }
             );
     }
-
-
 
     openTrashDialog() {
 

@@ -25,7 +25,7 @@ export class OpenDiagsComponent  {
   ngOnInit() {
       this.serverService.get("http://localhost/drawings").subscribe(
         data => {
-            //console.log(data);
+            console.log(data);
             var elements: Array<Element> = JSON.parse(JSON.stringify(data));
             this.dataSource = new MatTableDataSource<Element>(elements);
             this.dataSource.sort = this.sort;
