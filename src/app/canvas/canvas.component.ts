@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 
@@ -26,6 +26,8 @@ export class CanvasComponent implements OnInit {
     @ViewChild("drawingBlobMap") areaMap: ElementRef;
     
     @ViewChild("imgContainer") imageContainer: ElementRef;
+    
+    private last: MouseEvent;
     
     drawing: {id:string, title:string};
     
@@ -67,16 +69,38 @@ export class CanvasComponent implements OnInit {
                         this.renderer.setAttribute(areaElement, "coords", jsonItem['coords']);
                         this.renderer.setAttribute(areaElement, "alt", "rect");
                         this.renderer.appendChild(this.areaMap.nativeElement, areaElement);
+                         this.renderer.listen(areaElement, "click", (event)=>{
+                            this.openMenu(event);
+                        });    
                     }
                     
                 }
             );
     }
-
-    openTrashDialog() {
-
+    
+    
+    @HostListener('mousemove', ['$event'])
+    onMousemove(event: MouseEvent) {
+        this.last = event;
+    }
+    
+    openMenu(event){
         console.log('In TrashDialogComponent')
 
+        let dialogRef = this.dialog.open(TrashDialogComponent, {
+            position: {left: (window.innerWidth / 2)-300 + 'px'},
+            autoFocus: false,
+            width: '600px',
+            height: '450px'
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+        });
+    }
+
+    openTrashDialog() {
+        console.log('In TrashDialogComponent')
         let dialogRef = this.dialog.open(TrashDialogComponent, {
             position: {left: window.innerWidth / 2 + 'px'},
             autoFocus: false,

@@ -23,7 +23,6 @@ import { SignupDialogComponent } from './signup/signup.component';
 import { NewSequenceDialogComponent } from './sequence-diag/new-sequence-dialog/new-sequence-dialog.component';
 import { CanvasComponent } from './canvas/canvas.component';
 import { AboutComponent } from './about/about.component';
-import { RecentComponent } from './recent/recent.component';
 import { ImportDiagComponent } from './import-diag/import-diag.component';
 import { ContactComponent } from './contact/contact.component';
 import { DuplicateDialogComponent } from './canvas/duplicate-dialog/duplicate-dialog.component';
@@ -50,7 +49,6 @@ import {WindowRefService} from './window.services'
     NewSequenceDialogComponent,
     CanvasComponent,
     AboutComponent,
-    RecentComponent,
     ImportDiagComponent,
     ContactComponent,
     DuplicateDialogComponent,

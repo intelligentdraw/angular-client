@@ -4,7 +4,6 @@ import {NewDiagsComponent} from './new-diags/new-diags.component';
 import {OpenDiagsComponent} from'./open-diags/open-diags.component';
 import {CanvasComponent} from './canvas/canvas.component';
 import {ImportDiagComponent} from './import-diag/import-diag.component';
-import {RecentComponent} from './recent/recent.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 
@@ -15,8 +14,7 @@ const appRoutes: Routes = [
 {path: 'contact', component: ContactComponent},
 {path: 'import', component: ImportDiagComponent},
 {path: 'open', component:OpenDiagsComponent},
-{path: 'about', component:AboutComponent},
-{path: 'recent', component:RecentComponent}
+{path: 'about', component:AboutComponent}
 ];
 
 @NgModule({
