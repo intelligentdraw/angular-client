@@ -27,7 +27,7 @@ export class HeaderComponent {
 
 
         let dialogRef = this.dialog.open(LoginDialogComponent, {
-            position: {left: window.innerWidth / 2 + 'px'},
+            position: {left: (window.innerWidth / 2)-150 + 'px'},
             autoFocus: false,
             width: '300px',
             height: '450px'
@@ -45,7 +45,7 @@ export class HeaderComponent {
 
 
         let dialogRef = this.dialog.open(SignupDialogComponent, {
-            position: {left: window.innerWidth / 2 + 'px'},
+            position: {left: (window.innerWidth / 2)-175 + 'px'},
             autoFocus: false,
             width: '350px',
             height: '550px'

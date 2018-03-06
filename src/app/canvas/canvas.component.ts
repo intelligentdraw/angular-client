@@ -102,7 +102,7 @@ export class CanvasComponent implements OnInit {
     openTrashDialog() {
         console.log('In TrashDialogComponent')
         let dialogRef = this.dialog.open(TrashDialogComponent, {
-            position: {left: window.innerWidth / 2 + 'px'},
+            position: {left: (window.innerWidth / 2)-150 + 'px'},
             autoFocus: false,
             width: '300px',
             height: '450px'
@@ -118,7 +118,7 @@ export class CanvasComponent implements OnInit {
         console.log('In ExportDialogComponent')
 
         let dialogRef = this.dialog.open(ExportDialogComponent, {
-            position: {left: window.innerWidth / 2 + 'px'},
+            position: {left: (window.innerWidth / 2)-150 + 'px'},
             autoFocus: false,
             width: '300px',
             height: '450px'
@@ -134,7 +134,7 @@ export class CanvasComponent implements OnInit {
         console.log('In InfoDialogComponent')
 
         let dialogRef = this.dialog.open(InfoDialogComponent, {
-            position: {left: window.innerWidth / 2 + 'px'},
+            position: {left: (window.innerWidth / 2)-150 + 'px'},
             autoFocus: false,
             width: '300px',
             height: '450px'
@@ -150,7 +150,7 @@ export class CanvasComponent implements OnInit {
         console.log('In ShareDialogComponent')
 
         let dialogRef = this.dialog.open(ShareDialogComponent, {
-            position: {left: window.innerWidth / 2 + 'px'},
+            position: {left: (window.innerWidth / 2)-150 + 'px'},
             autoFocus: false,
             width: '300px',
             height: '450px'
@@ -166,7 +166,7 @@ export class CanvasComponent implements OnInit {
         console.log('In DuplicateDialogComponent')
 
         let dialogRef = this.dialog.open(DuplicateDialogComponent, {
-            position: {left: window.innerWidth / 2 + 'px'},
+            position: {left: (window.innerWidth / 2)-150 + 'px'},
             autoFocus: false,
             width: '300px',
             height: '450px'
