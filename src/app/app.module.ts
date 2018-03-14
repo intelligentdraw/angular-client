@@ -31,7 +31,8 @@ import { TrashDialogComponent } from './canvas/trash-dialog/trash-dialog.compone
 import { InfoDialogComponent } from './canvas/info-dialog/info-dialog.component';
 import { ShareDialogComponent } from './canvas/share-dialog/share-dialog.component';
 import {ServerService} from './server.services';
-import {WindowRefService} from './window.services'
+import {WindowRefService} from './window.services';
+import { ManageActorDialogComponent } from './canvas/manage-actor-dialog/manage-actor-dialog.component';
 
 
 
@@ -55,7 +56,8 @@ import {WindowRefService} from './window.services'
     ExportDialogComponent,
     TrashDialogComponent,
     InfoDialogComponent,
-    ShareDialogComponent
+    ShareDialogComponent,
+    ManageActorDialogComponent,
   ],
   entryComponents: [
     NewUsecaseDialogComponent,

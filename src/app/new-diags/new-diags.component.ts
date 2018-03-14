@@ -32,7 +32,7 @@ mylabel: string
       
       
       let dialogRef = this.dialog.open(NewUsecaseDialogComponent, {
-        position: {left: window.innerWidth/2 + 'px'},
+        position: {left: (window.innerWidth / 2)-150 + 'px'},
         width: '300px',
         height: '300px',
         autoFocus: false,

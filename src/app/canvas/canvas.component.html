@@ -12,8 +12,6 @@
     
     <div class="row content">
         <br>
-        <br>
-        <br>
     </div>
       
     <div class="row content">
@@ -26,7 +24,7 @@
          
             <div class="row content">
                     <div class="col-sm-1">
-                    <a href="javascript:void(0)" ><span class="glyphicon glyphicon-search"></span> History</a>
+                    <a href="javascript:void(0)" ><span class="glyphicon glyphicon-search"></span> <small>History</small></a>
                     </div>
                 
                     <div class="col-sm-1">
@@ -34,15 +32,7 @@
                     </div>
                 
                     <div class="col-sm-1">
-                    <a href="javascript:void(0)"  (click)="openDuplicateDialog()"><span class="glyphicon glyphicon-save"></span> Duplicate</a>
-                    </div>
-                
-                    <div class="col-sm-1">
-                    &nbsp;|&nbsp;
-                    </div>
-
-                    <div class="col-sm-1">
-                    <a href="javascript:void(0)" (click)="openExportDialog()"><span class="glyphicon glyphicon-export"></span> Export</a>
+                    <a href="javascript:void(0)"  (click)="openDuplicateDialog()"><span class="glyphicon glyphicon-save"></span> <small>Duplicate</small></a>
                     </div>
                 
                     <div class="col-sm-1">
@@ -50,7 +40,7 @@
                     </div>
 
                     <div class="col-sm-1">
-                    <a href="javascript:void(0)" (click)="openShareDialog()"><span class="glyphicon glyphicon-share"></span> Share</a>
+                    <a href="javascript:void(0)" (click)="openExportDialog()"><span class="glyphicon glyphicon-export"></span> <small>Export</small></a>
                     </div>
                 
                     <div class="col-sm-1">
@@ -58,7 +48,7 @@
                     </div>
 
                     <div class="col-sm-1">
-                    <a href="javascript:void(0)" (click)="openTrashDialog()"><span class="glyphicon glyphicon-trash"></span> Trash</a>
+                    <a href="javascript:void(0)" (click)="openShareDialog()"><span class="glyphicon glyphicon-share"></span> <small>Share</small></a>
                     </div>
                 
                     <div class="col-sm-1">
@@ -66,7 +56,15 @@
                     </div>
 
                     <div class="col-sm-1">
-                    <a href="javascript:void(0)" (click)="openInfoDialog()"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
+                    <a href="javascript:void(0)" (click)="openTrashDialog()"><span class="glyphicon glyphicon-trash"></span> <small>Trash</small></a>
+                    </div>
+                
+                    <div class="col-sm-1">
+                    &nbsp;|&nbsp;
+                    </div>
+
+                    <div class="col-sm-1">
+                        <a href="javascript:void(0)" (click)="openInfoDialog()"><span class="glyphicon glyphicon-info-sign"></span> <small>Info</small></a>
                     </div>
             </div>
         </div>
@@ -75,15 +73,10 @@
         </div>
     </div>
     
-    <div class="row content"  *ngIf="imageFound; else loading">
-        <br><br><br><br>
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6"> 
-            <img #drawingBlob  class="map" usemap="#drawingBlobMap"/>
+    <div class="row content"  *ngIf="imageFound; else loading">         
+        <div class="col-sm-12"> 
+            <img #drawingBlob  class="map center-block" usemap="#drawingBlobMap"/>
             <map name="drawingBlobMap" #drawingBlobMap></map>                
-        </div>
-        <div class="col-sm-3">
         </div>
     </div>
     
@@ -103,6 +96,11 @@
     
     
     
+    <div class="row content">
+        <br>
+        <br>
+    </div>
+    
     
     
      <div class="dropdown">
@@ -120,9 +118,6 @@
     
     
 
-
-    <br>
-    <br>
     <br>
     <br>
 </div>
