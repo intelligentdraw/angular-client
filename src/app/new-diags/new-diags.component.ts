@@ -34,7 +34,7 @@ mylabel: string
       let dialogRef = this.dialog.open(NewUsecaseDialogComponent, {
         position: {left: (window.innerWidth / 2)-150 + 'px'},
         width: '300px',
-        height: '300px',
+        height: '360px',
         autoFocus: false,
         data: { name: this.name, animal: this.animal }
         });

@@ -1,6 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {NgForm} from '@angular/forms'
+import {ServerService} from '../../server.services';
 
 @Component({
   selector: 'app-new-usecase-dialog',
@@ -10,11 +11,13 @@ import {NgForm} from '@angular/forms'
 export class NewUsecaseDialogComponent {
     
     usecaseData = {
+          usecaseDiagName:'',
           usecaseName:'',
           actorName:''
       }
 
-  constructor(
+  
+  constructor(private serverService: ServerService,
     public dialogRef: MatDialogRef<NewUsecaseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -22,10 +25,20 @@ export class NewUsecaseDialogComponent {
       //this.usecaseName = form.value('usecaseName');
       console.log(form);
       
+      this.usecaseData.usecaseDiagName = form.value.usecaseDiagName;
       this.usecaseData.usecaseName = form.value.usecaseName;
       this.usecaseData.actorName = form.value.actorName;
       
-      this.dialogRef.close(this.usecaseData);
+      this.serverService.put(this.usecaseData, "http://localhost/drawing/createNewUsecaseDiag").subscribe(
+        data => {
+            console.log("Callback after PUT");
+            console.log(data);
+            this.dialogRef.close(this.usecaseData);
+            //var elements: Array<Element> = JSON.parse(JSON.stringify(data));
+            //this.dataSource = new MatTableDataSource<Element>(elements);
+            //this.dataSource.sort = this.sort;
+        }
+      );
   }
   
   onNoClick(): void {

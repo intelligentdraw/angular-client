@@ -6,6 +6,10 @@
 <mat-dialog-content>
     <form class="example-form" (ngSubmit) = "createNewUseDiagram(f)" #f="ngForm">
         <mat-form-field class="example-full-width">
+            <input matInput placeholder="Use Case Diagram Name" ngModel name='usecaseDiagName' required>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
             <input matInput placeholder="Use Case Name" ngModel name='usecaseName' required>
         </mat-form-field>
         
