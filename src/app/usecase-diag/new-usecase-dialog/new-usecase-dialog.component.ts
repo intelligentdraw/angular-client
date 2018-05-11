@@ -15,6 +15,11 @@ export class NewUsecaseDialogComponent {
           usecaseName:'',
           actorName:''
       }
+      
+      
+    newUsecaseDiagResult = {
+        identifier:''
+    }
 
   
   constructor(private serverService: ServerService,
@@ -33,7 +38,8 @@ export class NewUsecaseDialogComponent {
         data => {
             console.log("Callback after PUT");
             console.log(data);
-            this.dialogRef.close(this.usecaseData);
+            this.newUsecaseDiagResult = JSON.parse(JSON.stringify(data));
+            this.dialogRef.close(this.newUsecaseDiagResult);
             //var elements: Array<Element> = JSON.parse(JSON.stringify(data));
             //this.dataSource = new MatTableDataSource<Element>(elements);
             //this.dataSource.sort = this.sort;
