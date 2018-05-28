@@ -7,6 +7,7 @@ import { ExportDialogComponent } from './export-dialog/export-dialog.component';
 import { TrashDialogComponent } from './trash-dialog/trash-dialog.component';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { ShareDialogComponent } from './share-dialog/share-dialog.component';
+import { ManageActorDialogComponent} from './manage-actor-dialog/manage-actor-dialog.component';
 import {ActivatedRoute} from '@angular/router';
 import {ServerService} from '../server.services';
 import {WindowRefService} from '../window.services';
@@ -63,14 +64,15 @@ export class CanvasComponent implements OnInit {
                     
                     var metadata = Object.values(data[1])
                     for (var i=0; i< metadata.length; i++){
-                        var jsonItem = metadata[i];                  
+                        const jsonItem = metadata[i];           
                         const areaElement = this.renderer.createElement("area");
                         this.renderer.setAttribute(areaElement, "shape", "rect");
                         this.renderer.setAttribute(areaElement, "coords", jsonItem['coords']);
+                        this.renderer.setAttribute(areaElement, "type", jsonItem['type']);
                         this.renderer.setAttribute(areaElement, "alt", "rect");
                         this.renderer.appendChild(this.areaMap.nativeElement, areaElement);
-                         this.renderer.listen(areaElement, "click", (event)=>{
-                            this.openMenu(event);
+                        this.renderer.listen(areaElement, "click", (event)=>{ 
+                            this.openMenu(jsonItem, event, areaElement);
                         });    
                     }
                     
@@ -84,15 +86,29 @@ export class CanvasComponent implements OnInit {
         this.last = event;
     }
     
-    openMenu(event){
-        console.log('In TrashDialogComponent')
-
-        let dialogRef = this.dialog.open(TrashDialogComponent, {
-            position: {left: (window.innerWidth / 2)-300 + 'px'},
-            autoFocus: false,
-            width: '600px',
-            height: '450px'
-        });
+    openMenu(jsonItem, event, areaElement){  
+        
+        let dialogRef = null; 
+        if (jsonItem['type'] =="actor"){
+            dialogRef = this.dialog.open(ManageActorDialogComponent, {
+                data:{
+                    actorName: jsonItem['name'],
+                    usecases: jsonItem['usecases']
+                },
+                position: {left: (window.innerWidth / 2)-300 + 'px'},
+                autoFocus: false,
+                width: '600px',
+                height: '450px'
+            });
+            
+        }else{ 
+            dialogRef = this.dialog.open(TrashDialogComponent, {
+                position: {left: (window.innerWidth / 2)-300 + 'px'},
+                autoFocus: false,
+                width: '600px',
+                height: '450px'
+            });
+        }
 
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed');

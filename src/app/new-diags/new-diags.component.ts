@@ -11,14 +11,17 @@ import {Router} from '@angular/router';
 })
 export class NewDiagsComponent {
 
-mylabel: string
-   animal: string;
-  name: string;
+    mylabel: string
+    animal: string;
+    name: string;
   
-  newUsecaseData = {
-      usecaseName:'',
-      actorName:''
-  }
+    newSequenceDiagResult = {
+        identifier:''
+    }
+  
+    newUsecaseDiagResult = {
+        identifier:''
+    }
 
   constructor(public dialog: MatDialog, private router: Router) {
       console.log('In NewDiagsComponent')
@@ -28,7 +31,7 @@ mylabel: string
   
   openUsecaseDialog(){
       
-      console.log('In openDialog')
+    console.log('In openDialog')
       
       
       let dialogRef = this.dialog.open(NewUsecaseDialogComponent, {
@@ -41,17 +44,14 @@ mylabel: string
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.newUsecaseData = result;
-      this.router.navigate(['/canvas']);
+      this.newUsecaseDiagResult = result;
+      this.router.navigate(['/canvas', this.newUsecaseDiagResult.identifier]);
     });
   }
 
   
-  openSequenceDialog(){
-      
+  openSequenceDialog(){      
       console.log('In openDialog')
-      
-      
       let dialogRef = this.dialog.open(NewSequenceDialogComponent, {
         position: {left: window.innerWidth/2 + 'px'},
         width: '300px',
@@ -62,7 +62,7 @@ mylabel: string
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.newUsecaseData = result;
+      this.newSequenceDiagResult = result;
     });
   }
 }

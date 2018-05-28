@@ -68,7 +68,8 @@ import { ManageActorDialogComponent } from './canvas/manage-actor-dialog/manage-
     ExportDialogComponent,
     TrashDialogComponent,
     InfoDialogComponent,
-    ShareDialogComponent
+    ShareDialogComponent,
+    ManageActorDialogComponent
   ],
   imports: [
     BrowserModule,

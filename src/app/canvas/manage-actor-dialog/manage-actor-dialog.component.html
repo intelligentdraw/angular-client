@@ -1,3 +1,47 @@
-<p>
-  manage-actor-dialog works!
-</p>
+<div align="right">
+    <a href="javascript:void(0)" (click)="close()">
+                <span class="glyphicon glyphicon-remove"></span></a>
+</div>
+<h4>Manage Actor: {{actorName}}</h4>
+
+<div class="tab">
+  <button class="tablinks" (click)="openCity(event, 'Actor')" id="defaultOpen" #defaultOpen>Actor</button>
+  <button class="tablinks" (click)="openCity(event, 'Usecases')">Usecases</button>
+</div>
+
+
+
+<div id="Actor" class="tabcontent">
+    <h4>Manage Actor</h4>
+    <mat-dialog-content>
+        <form class="example-form" (ngSubmit) = "renameActor(f)" #f="ngForm">
+            <br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Rename actor" ngModel name='actorName'  required >
+            </mat-form-field>
+
+
+             <button mat-button   class="btn btn-info btn-lg"  [disabled]='!f.valid'>Rename</button>
+          </form>
+    </mat-dialog-content>
+</div>
+
+<div id="Usecases" class="tabcontent">
+    <h4>Manage Usecases</h4>
+    <mat-dialog-content>
+        <form class="example-form" (ngSubmit) = "addUsecase(f)" #f="ngForm">
+             <mat-form-field class="example-full-width">
+                <input matInput placeholder="Use case name" ngModel name='usecaseName'   required >
+             </mat-form-field>
+            
+             
+             <button mat-button   class="btn btn-info btn-lg"  [disabled]='!f.valid'>Add usecase</button>
+          </form>
+        
+        {{usecases}}
+    </mat-dialog-content>
+</div>
+
+<script>
+    document.getElementById("defaultOpen").click();
+</script>
